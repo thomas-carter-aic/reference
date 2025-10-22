@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "private": true,
-  "workspaces": [
-    "services/*/ts",
-    "packages/js/*"
-  ],
   "scripts": {
+    "format": "prettier --write .",
+    "prepare": "husky install",
+    "check-format": "prettier --check .",
     "bootstrap": "pnpm install -w",
     "lint": "echo 'TODO: add linting pipeline'",
     "test": "echo 'TODO: add test runner'"
@@ -16,5 +15,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.16.1"
+  "packageManager": "pnpm@10.16.1",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2"
+  }
 }
