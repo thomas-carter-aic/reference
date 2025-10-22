@@ -1,0 +1,37 @@
+# General
+.DS_Store
+*.log
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env/
+
+# Node / TypeScript
+node_modules/
+dist/
+build/
+.npm/
+.pnpm-store/
+coverage/
+
+# Go
+bin/
+pkg/
+*.exe
+*.test
+
+# Java / Gradle / Maven
+target/
+out/
+*.class
+.gradle/
+.mvn/
+build/
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.iml
