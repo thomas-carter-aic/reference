@@ -1,0 +1,12 @@
+system:
+  name: "AI Monorepo"
+  version: "0.1.0"
+  default_locale: "en-US"
+
+logging:
+  level: "info"
+  format: "json"
+
+monitoring:
+  enabled: true
+  tracing_provider: "otel"

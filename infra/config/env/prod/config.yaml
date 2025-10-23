@@ -1,0 +1,12 @@
+environment: "prod"
+debug: false
+
+services:
+  api_gateway:
+    port: 80
+  event_store:
+    type: "postgres"
+    host: "prod-db.yourdomain.com"
+    port: 5432
+    user: "ai_prod_user"
+    password: "${VAULT_SECRET_DB_PASSWORD}"

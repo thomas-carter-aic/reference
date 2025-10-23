@@ -1,0 +1,3 @@
+# Validate configuration syntax
+echo "Validating configuration..."
+python3 tools/config_merge.py --env dev > /dev/null || exit 1
