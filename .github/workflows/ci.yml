@@ -25,3 +25,11 @@ jobs:
       - run: make bootstrap
       - run: make lint
       - run: make test
+
+  orchestration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate dev environment
+        run: |
+          docker compose -f infra/env/dev/compose/compose.yaml config

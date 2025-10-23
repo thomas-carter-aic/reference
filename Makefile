@@ -20,3 +20,22 @@ test:
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 	find . -type d -name "node_modules" -exec rm -rf {} +
+
+
+# --- Environment orchestration ---
+
+ENV ?= dev
+
+up:
+	@echo "Starting environment: $(ENV)"
+	docker compose -f infra/env/$(ENV)/compose/compose.yaml up -d
+
+down:
+	@echo "Stopping environment: $(ENV)"
+	docker compose -f infra/env/$(ENV)/compose/compose.yaml down
+
+logs:
+	docker compose -f infra/env/$(ENV)/compose/compose.yaml logs -f
+
+ps:
+	docker compose -f infra/env/$(ENV)/compose/compose.yaml ps

@@ -1,0 +1,14 @@
+version: "3.9"
+include:
+  - ../../shared/compose/base.yaml
+
+services:
+  prod-gateway:
+    image: yourorg/api-gateway:latest
+    container_name: prod-gateway
+    restart: always
+    environment:
+      NODE_ENV: production
+      CONFIG_ENV: prod
+    ports:
+      - "80:3000"

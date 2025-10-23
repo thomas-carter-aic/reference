@@ -1,0 +1,14 @@
+version: "3.9"
+include:
+  - ../../shared/compose/base.yaml
+
+services:
+  staging-gateway:
+    image: node:22-alpine
+    container_name: staging-gateway
+    command: sh -c "npm ci && npm run start"
+    ports:
+      - "4000:3000"
+    environment:
+      NODE_ENV: staging
+      CONFIG_ENV: staging

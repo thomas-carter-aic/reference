@@ -3,7 +3,14 @@ debug: true
 
 services:
   api_gateway:
+    host: "localhost"
     port: 3000
+  postgres:
+    host: "localhost"
+    port: 5432
+  redis:
+    host: "localhost"
+    port: 6379
   event_store:
     type: "postgres"
     host: "postgres"
