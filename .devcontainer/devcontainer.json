@@ -1,0 +1,25 @@
+{
+  "name": "AI Monorepo Dev",
+  "dockerComposeFile": "infra/compose/docker-compose.dev.yml",
+  "service": "dev",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "golang.go",
+        "rust-lang.rust-analyzer",
+        "ms-vscode.vscode-typescript-next",
+        "redhat.java",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "remoteEnv": {
+    "APP_ENV": "development"
+  }
+}
