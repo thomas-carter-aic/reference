@@ -33,3 +33,14 @@ jobs:
       - name: Validate dev environment
         run: |
           docker compose -f infra/env/dev/compose/compose.yaml config
+
+  iac-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+      - name: Validate IaC syntax
+        run: |
+          terraform -chdir=infra/iac/env/dev init -backend=false
+          terraform -chdir=infra/iac/env/dev validate

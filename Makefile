@@ -50,3 +50,21 @@ check-env:
 
 deploy-local:
    ./scripts/deploy_local.sh
+
+
+# --- Infrastructure as Code ---
+
+IAC_DIR ?= infra/iac/env
+ENV ?= dev
+
+iac-init:
+	cd $(IAC_DIR)/$(ENV) && terraform init
+
+iac-plan:
+	cd $(IAC_DIR)/$(ENV) && terraform plan -var "environment=$(ENV)"
+
+iac-apply:
+	cd $(IAC_DIR)/$(ENV) && terraform apply -auto-approve -var "environment=$(ENV)"
+
+iac-destroy:
+	cd $(IAC_DIR)/$(ENV) && terraform destroy -auto-approve -var "environment=$(ENV)"
