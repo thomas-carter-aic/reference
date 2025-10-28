@@ -1,3 +1,10 @@
 # Validate configuration syntax
 echo "Validating configuration..."
 python3 tools/config_merge.py --env dev > /dev/null || exit 1
+
+
+# Prevent committing .env* files
+if git diff --cached --name-only | grep -E "\.env|infra/secrets" >/dev/null; then
+  echo "ERROR: Trying to commit .env or infra/secrets files. Move secrets to secret manager or infra/secrets/.env.local and don't commit."
+  exit 1
+fi

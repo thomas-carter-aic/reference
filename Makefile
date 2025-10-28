@@ -39,3 +39,14 @@ logs:
 
 ps:
 	docker compose -f infra/env/$(ENV)/compose/compose.yaml ps
+
+
+# Operational helpers
+setup-dev:
+   ./scripts/setup_dev_env.sh
+
+check-env:
+   ./scripts/check_env.sh
+
+deploy-local:
+   ./scripts/deploy_local.sh
