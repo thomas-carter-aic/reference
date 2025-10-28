@@ -17,3 +17,28 @@ services:
       CONFIG_ENV: dev
       POSTGRES_USER: dev
       POSTGRES_PASSWORD: dev
+
+  node-service:
+    build: ../../../services/node-service
+    ports:
+      - "3001:3001"
+
+  go-service:
+    build: ../../../services/go-service
+    ports:
+      - "3002:3002"
+
+  python-service:
+    build: ../../../services/python-service
+    ports:
+      - "3003:3003"
+
+  rust-service:
+    build: ../../../services/rust-service
+    ports:
+      - "3004:3004"
+
+  java-service:
+    build: ../../../services/java-service
+    ports:
+      - "3005:3005"

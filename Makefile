@@ -68,3 +68,13 @@ iac-apply:
 
 iac-destroy:
 	cd $(IAC_DIR)/$(ENV) && terraform destroy -auto-approve -var "environment=$(ENV)"
+
+# --- Services ---
+
+SERVICES := node-service go-service python-service rust-service java-service
+
+build-all:
+	for s in $(SERVICES); do docker build -t $$s:dev ./services/$$s; done
+
+run-all:
+	for s in $(SERVICES); do docker run -d -p 3000 $$s:dev; done
